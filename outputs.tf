@@ -3,7 +3,7 @@ output "vpc_id" {
     value = aws_vpc.main.id
 }
 
-output "chosen db_backend"{
+output "chosen_db_backend"{
     description = "Which db option this stack is set to use later"
     value = var.db_backend
 }
