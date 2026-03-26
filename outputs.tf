@@ -25,17 +25,17 @@ output "azs_used" {
 
 output "public_subnets_ids" {
   description = "IDs of the public subnets"
-  value = aws_subnet.public[*].id
+  value       = aws_subnet.public[*].id
 }
 
 output "public_subnets_cidrs" {
   description = "CIDRs of the public subnets"
-  value = aws_subnet.public[*].cidr_block
+  value       = aws_subnet.public[*].cidr_block
 }
 
 output "azs-used" {
   description = "Availability Zones used for public subnets"
-  value = local.azs
+  value       = local.azs
 }
 
 # A friendlier, per-subnet bundle
@@ -44,10 +44,10 @@ output "public_subnets-struct" {
   value = [
     for idx, s in aws_subnet.public :
     {
-        index = idx + 1
-        id = s.id
-        az = local.azs[idx]
-        cidr = s.cidr_block
+      index = idx + 1
+      id    = s.id
+      az    = local.azs[idx]
+      cidr  = s.cidr_block
     }
   ]
 }
