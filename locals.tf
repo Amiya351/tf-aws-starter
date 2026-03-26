@@ -13,7 +13,7 @@ locals {
   name_prefix = "${var.project_name}-${var.tags["Environment"]}"
 
   # Take the first N AZs in this region
-  azs = slice(data.aws_availablity_zones.available.names, 0, var.az_count)
+  azs = slice(data.aws_availability_zones.available.names, 0, var.az_count)
 
   # Precompute the public subnets CIDRs we will use (one per AZ)
   public_subnet_cidrs = [
